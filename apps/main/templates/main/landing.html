@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Hello {{user_name}}</h1>
+    <p>you have successfuly {{request.session.status}}</p>
+    <h3> Your Wishlist</h3>
+    <table>
+        <tr>
+            <th>item</th>
+            <th>Added By</th>
+            <th> Date Addded</th>
+        </tr>
+        {% if items %}
+        {% for item in items %}
+        <tr>
+           <td><a href="/wish_items/{{item.id}}">{{ item.description }}</a></td>
+           <td>{{ item.user_name }}</td>
+           <td> {{ item.date_added }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    <h3>Other People's Wishlist</h3>
+    <table>
+            <tr>
+                <th>Name </th>
+                <th>Item</th>
+                <th>Date Added</th>
+                <th>Action</th>
+            </tr>
+            {% if others %}
+            {% for other in others %}
+            <tr>
+               <td>{{ other.description }}</a></td>
+               <td><a href="/add_item/{{other.id}}">{{ other.item }}</a></td>
+               <td>{{ other.date_added }}</td>
+               <td><a href="/add_item/{{other.id}}">Join</a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    <a href="/add_item">Add an Item!</a>
+    <a href="/logout">logout</a>
+  </body>
+</html>

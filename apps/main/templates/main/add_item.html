@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Item</title>
+  </head>
+  <body>
+    <p> Add an item to your wishlist!</p>
+
+    <form
+      action="/main/landing">
+      <button type="button">Add item</button>
+      {% csrf_token %}
+      <input type="text" name"add item">
+    </form>
+    <a href="/index">Home</a>
+    <a href="/logout">Logout</a>
+  </body>
+</html>
